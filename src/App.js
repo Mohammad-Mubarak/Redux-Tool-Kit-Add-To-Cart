@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from "./Components/Card";
+import Head from "./Components/Header/Head";
+import Products from "./Components/Header/Products";
+import { Provider } from "react-redux";
+import store from "./Store/Store";
+import { BrowserRouter,Route,Routes } from "react-router-dom";
+import ShoppingCartThree from "./Components/ShoppingCartThree "
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Provider store={store}>
+			<BrowserRouter>
+			<Head/>
+				<Routes>
+			
+					<Route path="/" element={<Card/>}> </Route>
+					<Route path="/cart" element={<ShoppingCartThree/>}> </Route>
+
+				</Routes>
+			</BrowserRouter>
+		
+				
+			</Provider>
+		</>
+	);
 }
 
 export default App;
